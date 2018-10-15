@@ -1,7 +1,5 @@
 /* Typo */
-@import url('//fonts.googleapis.com/css?family=Montserrat');
-@import url('//fonts.googleapis.com/css?family=Raleway');
-@import url('//fonts.googleapis.com/css?family=Yellowtail');
+@import url('//fonts.googleapis.com/css?family=Montserrat|Raleway|Yellowtail');
 
 body {
 	font-family: Raleway;
@@ -21,6 +19,86 @@ p { line-height: 1.8; }
 
 
 
+/* Bloc avec grande image en bg sous le menu */
+.under-header {
+	margin-top: -100px;/* !default par sÃ©curitÃ© pour etre sur qu'il est bien sous le header meme si le js ne s'execute pas */
+    height: 320px;
+    padding-top: 100px;	
+	position: relative;
+	z-index: 0;
+}
+.under-header * {	
+	position: relative;
+	z-index: 1;
+}
+	.overlay {
+		background-color: rgba(0, 0, 0, 0.2);
+
+		position: absolute;
+
+		top: 0;
+		left: 0;
+
+		z-index: 0;
+
+		width: 100%;
+		height: 100%;
+	}
+
+
+/* Bg cover toutes la fenetre */
+.fullpage {
+	position: relative;
+	min-height: 100vh;
+	overflow: hidden;
+	background-size: cover;
+}
+
+
+/* Bloc avec effet de paralax */
+.parallax, .fullpage {
+	background-size: cover !important;
+	text-shadow: 1px 1px 1px #545454;	
+	background-position: 50% 0%;
+	/*transition: background-position-y .1s;*/
+}
+	.parallax h1, .parallax h2, .fullpage h1 { 
+		font-family: Yellowtail;
+		font-size: 5em;
+	}
+	.parallax h3 { font-family: Montserrat;	}
+
+
+/* bloc jaune de lien */
+.link-box a {
+    background-color: #f2ce3e;
+
+	margin: 10px 0;
+	padding: 5px 20px;
+
+	display: inline-block;
+
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: Montserrat;
+
+	transition: background .2s;
+}
+	.link-box a:hover {
+		background-color: #BB9F5D;
+	}
+
+
+aside { border: 2px solid #000; }
+aside > div { 
+	border: 1px solid #000;
+	height: 100%;
+}
+
+
+
 header {
 	position: relative;
 	z-index: 10;
@@ -29,6 +107,25 @@ header {
 	header #header-logo { transition: opacity .5s; }
 		header #header-logo:hover { opacity: 0.6; }
 	
+
+	/* MENU DE NAVIGATION */
+	header nav ul {
+		list-style: none;
+		display: inline-block;
+		padding: 0;
+		margin-top: 2rem;
+	}
+		header nav li {
+			float: left;
+			padding: 0 0.5rem;
+			margin: 0 0.5rem;
+		}
+		header nav a { 
+			text-decoration: none;
+			color: #fff;
+			text-shadow: 1px 2px 2px rgb(153, 153, 153);
+		}
+
 
 	/* BOUTON BURGER & Animation */
 	header nav .burger {
@@ -89,183 +186,6 @@ header {
 	.burger.active span::before,
 	.burger.active span::after { transition-delay: 0s, 0.3s;	}
 
-	
-	/* MENU DE NAVIGATION */
-	header nav ul {
-		list-style: none;
-		display: inline-block;
-		padding: 0;
-		margin-top: 2rem;
-		/*background-color: rgba(255,255,255,0.70);*/
-		/*box-shadow: inset 0 0 18px 8px #fff;
-		border-radius: 5px;*/
-	}
-		header nav li {
-			float: left;
-			padding: 0 0.5rem;
-			margin: 0 0.5rem;
-			/*border-radius: 5px;
-			transition: background .5s;*/
-		}
-		header nav li:hover {
-			/*background-color: #fff;*/
-		}
-		header nav a { 
-			text-decoration: none;
-			color: #fff;
-			text-shadow: 1px 2px 2px rgb(153, 153, 153);
-		}
-
-
-/* Bloc avec grande image en bg sous le menu */
-.under-header {
-	margin-top: -100px;/* !default par sécurité pour etre sur qu'il est bien sous le header meme si le js ne s'execute pas */
-    height: 320px;
-    padding-top: 100px;	
-	position: relative;
-	z-index: 0;
-}
-.under-header * {	
-	position: relative;
-	z-index: 1;
-}
-	.overlay {
-		background-color: rgba(0, 0, 0, 0.2);
-
-		position: absolute;
-
-		top: 0;
-		left: 0;
-
-		z-index: 0;
-
-		width: 100%;
-		height: 100%;
-	}
-
-
-/* Bg cover toutes la fenetre */
-.fullpage {
-	position: relative;
-	min-height: 100vh;
-	overflow: hidden;
-	background-size: cover;
-}
-
-	.intro { margin-top: -85px; }
-
-		/* TITRE */			
-		.intro h1, .intro h2 {	
-			position: absolute;
-			width: 100%;
-			z-index: 1;
-			color: #fff;			
-		}
-			@keyframes h1 {
-				0% { opacity: 0; transform: translate3d(0, -100px, 0); }
-				100% { opacity: 1; transform: translate3d(0, 0, 0); }
-			}	
-			.intro h1 {	
-				top: 200px;
-				left: 20%;	
-				animation: h1 5s;
-			}
-			@keyframes h2 {
-				0% { opacity: 0; transform: translate3d(100px, 0, 0); }
-				100% { opacity: 1; transform: translate3d(0, 0, 0); }
-			}	
-			.intro h2 {
-				top: 300px;
-				left: 30%;	
-				animation: h2 5s;	
-			}
-		
-		
-		/* BOUTON POUR DESCENDRE */
-		.intro a[href='#scrolldown'] {
-			position: absolute;
-			bottom: 0;
-			left: 50%;
-			transform: translate(-20px, -20%);
-			width: 40px;
-			height: 60px;
-
-			opacity: .9;
-
-			z-index: 5;
-			
-
-			transition: opacity .3s;
-		}
-			.intro a[href='#scrolldown']:hover { opacity: .5; }
-
-			.intro a[href='#scrolldown'] span {
-				position: absolute;
-				top: 0;
-				left: 50%;
-				width: 24px;
-				height: 24px;
-				margin-left: -12px;
-
-				border-left: 1px solid #fff;
-				border-bottom: 1px solid #fff;
-
-				transform: rotate(-45deg);
-
-				animation: scrolldown 1.5s infinite 2s;
-
-				box-sizing: border-box;
-			}
-			@keyframes scrolldown {
-				0% { transform: rotate(-45deg) translate(0, 0); opacity: 0; }
-				50% { opacity: 1; }
-				100% { transform: rotate(-45deg) translate(-20px, 20px); opacity: 0; }
-			}
-
-
-
-
-/* Bloc avec effet de paralax */
-.parallax, .fullpage {
-	background-size: cover !important;
-	text-shadow: 1px 1px 1px #545454;	
-	background-position: 50% 0%;
-	/*transition: background-position-y .1s;*/
-}
-	.parallax h1, .parallax h2, .fullpage h1 { 
-		font-family: Yellowtail;
-		font-size: 5em;
-	}
-	.parallax h3 { font-family: Montserrat;	}
-
-
-/* bloc jaune de lien */
-.link-box a {
-    background-color: #f2ce3e;
-
-	margin: 10px 0;
-	padding: 5px 20px;
-
-	display: inline-block;
-
-	color: #fff;
-	text-decoration: none;
-	text-transform: uppercase;
-	font-weight: bold;
-	font-family: Montserrat;
-
-	transition: background .2s;
-}
-	.link-box a:hover {
-		background-color: #BB9F5D;
-	}
-
-
-aside { border: 2px solid #000; }
-aside > div { 
-	border: 1px solid #000;
-	height: 100%;
-}
 
 
 footer {
@@ -296,6 +216,9 @@ footer {
 		.social a[href*='google']:hover { background-color: #dd4b39; }
 
 
+
+
+/* RESPONSIVE */
 
 @media (max-width: 850px) 
 {
@@ -378,7 +301,6 @@ footer {
 	    font-size: 1.5em;
 	    text-align: center;
 	}
-
 }
 
 @media (max-width: 480px) 
@@ -392,7 +314,7 @@ footer {
 	.prl { padding-right: 0; }
 
 	article { 
-		/*display: inline-block; Crée un bug collateral avec l'editeur de menu ... utile ?*/
+		/*display: inline-block; CrÃ©e un bug collateral avec l'editeur de menu ... utile ?*/
 		padding-left: 0.5rem;
 		padding-right: 0.5rem;
 	}
@@ -401,5 +323,9 @@ footer {
 		float: none;
 		display: block;
 		margin: 0 auto 0.5rem;
+	}
+	.editable img {
+		max-width: 100%;
+		height: auto;
 	}
 }
